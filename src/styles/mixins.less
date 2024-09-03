@@ -1,0 +1,47 @@
+@import './vars.less';
+
+.flex(@fd: row, @ai: center, @jc: flex-start ) {
+  display: flex;
+  flex-direction: @fd;
+  align-items: @ai;
+  justify-content: @jc;
+}
+
+.font(@w: 400, @s: @font-size-xs) {
+ font-weight: @w;
+ font-size: @s;
+}
+
+.overflow() {
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.btn(@mw: 100%, @br, @bg: @primary) {
+  width: 100%;
+  max-width: @mw;
+  .flex(@jc: center);
+  .font(@w: 700);
+  color: @base-light;
+  text-transform: uppercase;
+  border: none;
+  border-radius: @br;
+  background-color: @bg;
+  cursor: pointer;
+  transition: background-color @transition;
+  .overflow();
+  @media (hover: hover) {
+    &:hover {
+      background-color: @primary-hover;
+    }
+  }
+  &:active {
+    background-color: @primary-active;
+  }
+  &:disabled {
+    color: fade(@base-light, 30%);
+    background-color: fade(@base-light, 20%);
+  }
+}
+
