@@ -25,13 +25,11 @@ export const PlayerInfo = ({ player }) => {
         <input type="checkbox" id="balance-btn" className="balance-btn"></input>
         <div className="balance-btn__hide">
           <div className="balance-btn__before">
-            <span className="balance-btn__icon" />
-            <span className="balance-btn__text">Show balance</span>
+            <div className="balance-btn__icon" />
+            <div className="balance-btn__text">Show balance</div>
           </div>
         </div>
-        <span className="balance-btn_label">
-          ${balance}
-        </span>
+        <span className="balance-btn_label">${balance}</span>
       </label>
     </div>
   );
