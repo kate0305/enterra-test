@@ -4,6 +4,12 @@
   .width();
   .flex(@jc: center);
   gap: @gap-8;
+  padding: 1px @gap-4 0 3px;
+}
+
+.player_data {
+  .flex(@fd: column, @ai: flex-end);
+  gap: @gap-2;
 }
 
 .player_name {
@@ -14,7 +20,8 @@
 }
 
 .player_raiting {
-  .flex(@jc: flex-end);
+  .flex();
+  gap: 1px;
 }
 
 .star {
@@ -40,7 +47,7 @@
 
 .balance-btn {
   position: relative;
-  width: 126px;
+  width: 120px;
   height: 26px;
   background-color: @bg-card;
   border-radius: @border-radius-xl;
@@ -51,7 +58,7 @@
       background-image: url('@{images}/visible.svg');
     }
     .balance-btn__text {
-      width: 126px;
+      width: 120px;
       padding-left: @gap-30;
       .bg-btn();
       z-index: 1;
@@ -63,7 +70,7 @@
   position: absolute;
   max-width: 80px;
   top: 50%;
-  left: 30%;
+  left: 35%;
   .font(@s: @font-size-s);
   color: @base-light;
   transform: translateY(-50%);
