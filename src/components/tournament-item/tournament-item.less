@@ -1,0 +1,157 @@
+@import '../../index.less';
+
+.tournament {
+  .width();
+  .flex();
+  border-radius: @border-radius-s;
+  background-color: @bg-card;
+  transition: background-color @transition;
+  cursor: pointer;
+  &:not(:has(.primary-btn:hover)) {
+    .isHover({background-color: @bg-card-hover});
+  }
+  &:not(:has(.primary-btn:active)):active {
+    background-color: @bg-card-pressed;
+  }
+  &__selected {
+    background-color: @bg-card-selected;
+  }
+}
+
+.tournament_label {
+  .width(@mw: 16px);
+  height: 100%;
+  max-height: 78px;
+  padding: 9px 3px;
+  .font(@w: 600, @s: @font-size-xxs);
+  text-transform: uppercase;
+  text-align: center;
+  color: @base-light;
+  background-color: @primary;
+  border-radius: 0 @border-radius-s @border-radius-s 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: scale(-1);
+  .overflow();
+  &__disable {
+    background-color: @bg-disable;
+  }
+}
+
+.tournament_container {
+  .width(@mw: calc(100% - 16px));
+  .flex(@fd: column; @ai: flex-start);
+  gap: @gap-8;
+  padding: @gap-8;
+  padding-right: @gap-6;
+}
+
+.tournament_data {
+  .width();
+  .flex(@ai: flex-start, @jc: space-between);
+  padding-right: @gap-2;
+}
+
+.tournament_main-info {
+  .width(@mw: 62%);
+  .flex(@fd: column; @ai: flex-start);
+  gap: 9px;
+}
+
+:is(.tournament_tags, .tournament_title) {
+  .width();
+  .overflow();
+}
+
+.tournament_tags {
+  max-height: 16px;
+  .flex();
+  flex-wrap: wrap;
+  gap: @gap-4;
+  overflow-y: hidden;
+}
+
+.tournament_title {
+  .font(@w: 600, @s: @font-size-s);
+  color: @base-light;
+  &__green {
+    color: @primary-text;
+  }
+  &__yellow {
+    color: @secondary-text;
+  }
+}
+
+.tournament_tag {
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.tournament_type {
+  max-width: 170px;
+  padding: @gap-2;
+  .font(@w: 600, @s: @font-size-xxs);
+  text-transform: uppercase;
+  color: @base-light;
+  border: 1px solid @base-light;
+  border-radius: @border-radius-xs;
+  .overflow();
+  opacity: 0.7;
+}
+
+.tournament_info {
+  .width();
+  .flex(@jc: space-between);
+}
+
+.tournament_stats {
+  .width(@mw: 140px);
+  .flex();
+  gap: @gap-8;
+}
+
+:is(.tournament_date, .tournament_players, .tournament_tourney) {
+  padding-left: @gap-18;
+  .font(@w: 500);
+  color: fade(@base-light, 70%);
+  .bg-image();
+  .overflow();
+}
+
+.tournament_date {
+  max-width: 120px;
+  background-image: url('@{images}/watch.svg');
+}
+
+.tournament_players {
+  width: 100%;
+  max-width: 70px;
+  background-image: url('@{images}/players.svg');
+}
+
+.tournament_tourney {
+  background-image: url('@{images}/tourney.svg');
+}
+.primary-btn {
+  .btn(@mw: 80px; @br: @border-radius-s);
+  padding: 10px 3px;
+  z-index: 2;
+}
+
+.pin {
+  background-image: url('@{images}/pin.svg');
+}
+
+.time {
+  background-image: url('@{images}/time.svg');
+}
+
+.freeRoll {
+  background-image: url('@{images}/free-roll.svg');
+}
+
+.rapid {
+  background-image: url('@{images}/rapid.svg');
+}

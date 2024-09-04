@@ -1,0 +1,32 @@
+@import '../../index.less';
+
+.loader {
+  .width(@mw: 304px);
+  .flex(@fd: column, @ai: flex-start);
+  gap: @gap-4;
+  margin: @gap-20 0 9px;
+}
+
+.loader__bar {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: @bg-card;
+  border-radius: @border-radius-s;
+  .overflow();
+}
+
+.loader__inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background-color: @primary;
+  transition: all @transition;
+}
+
+.loader__text {
+  .font();
+  color: @base-light;
+}

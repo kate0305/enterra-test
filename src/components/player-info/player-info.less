@@ -1,0 +1,124 @@
+@import '../../index.less';
+
+.player {
+  .width();
+  .flex(@jc: center);
+  gap: @gap-8;
+  padding: 1px @gap-4 0 3px;
+}
+
+.player_data {
+  .flex(@fd: column, @ai: flex-end);
+  gap: @gap-2;
+}
+
+.player_name {
+  max-width: 127px;
+  .font(@s: @font-size-m);
+  color: @base-light;
+  .overflow();
+}
+
+.player_raiting {
+  .flex();
+  gap: 1px;
+}
+
+.star {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.star__colored {
+  background-image: url('@{images}/star-colored.svg');
+}
+
+.star__not-colored {
+  background-image: url('@{images}/star-not-colored.svg');
+}
+
+.player_balance {
+  position: relative;
+  .flex();
+}
+
+.balance-btn {
+  position: relative;
+  width: 120px;
+  height: 26px;
+  background-color: @bg-card;
+  border-radius: @border-radius-xl;
+  outline: none;
+  appearance: none;
+  &:checked + .balance-btn__hide .balance-btn__before {
+    .balance-btn__icon {
+      background-image: url('@{images}/visible.svg');
+    }
+    .balance-btn__text {
+      width: 120px;
+      padding-left: @gap-30;
+      .bg-btn();
+      z-index: 1;
+    }
+  }
+}
+
+.balance-btn_label {
+  position: absolute;
+  max-width: 80px;
+  top: 50%;
+  left: 35%;
+  .font(@s: @font-size-s);
+  color: @base-light;
+  transform: translateY(-50%);
+  .overflow();
+}
+
+.balance-btn__hide {
+  position: absolute;
+}
+
+.balance-btn__before {
+  position: relative;
+  .flex();
+  border-radius: @border-radius-l;
+}
+
+.balance-btn__icon {
+  width: 32px;
+  height: 26px;
+  .flex(@jc: center);
+  padding-left: @gap-16;
+  background-color: @primary;
+  .bg-btn();
+  border-radius: @border-radius-l;
+  transition: all @transition;
+  cursor: pointer;
+  .isHover({background-color: @primary-hover});
+  &:active {
+    background-color: @primary-active;
+  }
+}
+
+.balance-btn__text {
+  position: absolute;
+  left: 0;
+  width: 32px;
+  height: 26px;
+  .flex();
+  .font(@w: 600, @s: @font-size-s);
+  color: @base-light;
+  background-color: @primary;
+  border-radius: @border-radius-l;
+  transition: all @transition;
+  .overflow();
+  cursor: pointer;
+  z-index: -1;
+  .isHover({background-color: @primary-hover});
+  &:active {
+    background-color: @primary-active;
+  }
+}

@@ -1,0 +1,52 @@
+@import '../../index.less';
+
+@circle-count: 12;
+@duration: 1s;
+
+.generate-circle(@i: 1) when (@i =< @circle-count) {
+  .spinner_circle__@{i} {
+    transform: rotate(calc((360deg / @circle-count) * @i));
+    &::before {
+      animation: spinner @duration ease-in calc(@duration / @circle-count * @i) infinite reverse;
+    }
+  }
+
+  .generate-circle(@i + 1);
+}
+
+.spinner {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: @gap-16 0 23px;
+  .generate-circle();
+}
+
+.spinner_circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: @gap-10;
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: @primary;
+    border-radius: @border-radius-circle;
+    opacity: 1;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

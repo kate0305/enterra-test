@@ -1,0 +1,29 @@
+@import '@/index.less';
+
+#root {
+  font-family: 'Montserrat', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: @bg-page;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: @gap-32 @gap-8 @gap-10;
+  .flex(@fd: column);
+  min-height: 100dvh;
+}
+
+.app_title {
+  .font(@s: 40px);
+  color: @base-light;
+}
+
+.app_list {
+  .width();
+  .flex(@fd: column);
+  gap: @gap-4;
+}
