@@ -72,3 +72,10 @@ export const tournamentsData = [
     tourney: '1000000',
   },
 ];
+
+export const userData = {
+  name: 'LongUserName',
+  avatar: 'icons/avatar.svg',
+  balance: '100,500.00',
+  rating: 5,
+};

@@ -1,1 +1,3 @@
 export const DEFAULT_TOURNAMENT_NUMBER = 6;
+export const MAX_USER_RATING = 5;
+export const AMOUNT_CIRCLES_IN_SPINNER = 12;
