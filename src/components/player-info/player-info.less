@@ -1,0 +1,110 @@
+@import '../../index.less';
+
+.player {
+  .width();
+  .flex(@jc: center);
+  gap: @gap-8;
+}
+
+.player_name {
+  max-width: 127px;
+  .font(@s: @font-size-m);
+  color: @base-light;
+  .overflow();
+}
+
+.player_raiting {
+  .flex(@jc: flex-end);
+}
+
+.star {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.star__colored {
+  background-image: url('@{images}/star-colored.svg');
+}
+
+.star__not-colored {
+  background-image: url('@{images}/star-not-colored.svg');
+}
+
+.player_balance {
+  position: relative;
+  .flex();
+}
+
+.balance-btn {
+  position: relative;
+  width: 126px;
+  height: 26px;
+  background: @bg-card;
+  border-radius: @border-radius-xl;
+  outline: none;
+  appearance: none;
+  &:checked + .balance-btn__hide .balance-btn__before {
+    .balance-btn__icon {
+      background-image: url('@{images}/visible.svg');
+    }
+    .balance-btn__text {
+      width: 105px;
+      padding-left: 10px;
+    }
+  }
+}
+
+.balance-btn_label {
+  position: absolute;
+  max-width: 80px;
+  top: 50%;
+  left: 30%;
+  .font(@s: @font-size-s);
+  color: @base-light;
+  transform: translateY(-50%);
+  .overflow();
+}
+
+.balance-btn__hide {
+  position: absolute;
+}
+
+.balance-btn__before {
+  position: relative;
+  .flex();
+  z-index: 1;
+}
+
+.balance-btn__icon {
+  width: 32px;
+  height: 26px;
+  .flex(@jc: center);
+  padding-left: @gap-16;
+  background-color: @primary;
+  background-image: url('@{images}/unvisible.svg');
+  background-repeat: no-repeat;
+  background-position: left @gap-4 center;
+  border-radius: @border-radius-l;
+  transition: background-image @transition;
+  cursor: pointer;
+}
+
+.balance-btn__text {
+  position: relative;
+  width: 0;
+  height: 26px;
+  .flex();
+  margin-left: -11px;
+  .font(@w: 600, @s: @font-size-s);
+  color: @base-light;
+  background-color: @primary;
+  border-top-right-radius: @border-radius-l;
+  border-bottom-right-radius: @border-radius-l;
+  transition: 0.3s all ease;
+  .overflow();
+  cursor: pointer;
+  z-index: -1;
+}
