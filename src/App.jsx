@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
+import { PlayerInfo } from '@/components/player-info';
+import { TournamentItem } from '@/components/tournament-item';
+import { Spinner } from './components/spinner';
+import { Loader } from './components/loader';
+import { tournamentsData, userData } from '@/utils/data';
+import { DEFAULT_TOURNAMENT_NUMBER } from '@/utils/consts';
+import './App.less';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [selectedTournament, setSelectedTournament] = useState(DEFAULT_TOURNAMENT_NUMBER);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="wrapper">
+      <h1 className="app_title">Poker</h1>
+      <Spinner />
+      <PlayerInfo player={userData} />
+      <Loader />
+      <ul className="app_list">
+        {tournamentsData.map((tournament) => {
+          const handleSelect = () => setSelectedTournament(tournament.id);
+          return (
+            <TournamentItem
+              key={tournament.id}
+              tournament={tournament}
+              selectedTournament={selectedTournament}
+              handleSelect={handleSelect}
+            />
+          );
+        })}
+      </ul>
+    </div>
+  );
 }
 
-export default App
+export default App;
